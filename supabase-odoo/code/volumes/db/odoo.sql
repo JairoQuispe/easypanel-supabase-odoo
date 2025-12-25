@@ -1,0 +1,2 @@
+\set pgpass `echo "$POSTGRES_PASSWORD"`
+CREATE USER odoo WITH PASSWORD :'pgpass' CREATEDB;
