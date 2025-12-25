@@ -478,7 +478,22 @@ services:
       ]
   odoo:
     image: odoo:19.0
+    ports:
+      - '8069:8069'
     restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8069/"
+        ]
+      timeout: 5s
+      interval: 5s
+      retries: 3
     depends_on:
       db:
         condition: service_healthy
