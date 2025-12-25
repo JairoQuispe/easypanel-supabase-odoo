@@ -50,6 +50,9 @@ services:
 
   kong:
     image: kong:2.8.1
+    ports:
+      - '8000:8000'
+      - '8443:8443'
     restart: unless-stopped
     volumes:
       # https://github.com/supabase/supabase/issues/12661
@@ -506,8 +509,9 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - ./volumes/odoo/odoo.conf:/etc/odoo/odoo.conf:ro,z
+      - odoo-addons:/mnt/extra-addons:ro,z
 
 volumes:
   db-config:
   odoo-data:
-
+  odoo-addons:
