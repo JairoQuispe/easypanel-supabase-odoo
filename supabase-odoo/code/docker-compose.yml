@@ -485,6 +485,10 @@ services:
       - USER=postgres
       - PASSWORD=${POSTGRES_PASSWORD}
       - DATABASE=postgres
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./volumes/odoo/odoo.conf:/etc/odoo/odoo.conf:ro,z
 
 volumes:
   db-config:
+  odoo-data:
