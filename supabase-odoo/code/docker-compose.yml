@@ -484,7 +484,7 @@ services:
         condition: service_healthy
     environment:
       - HOST=db
-      - USER=odoo
+      - USER=supabase_admin
       - PASSWORD=${POSTGRES_PASSWORD}
       - DATABASE=postgres
     volumes:
